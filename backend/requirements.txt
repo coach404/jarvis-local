@@ -1,0 +1,3 @@
+fastapi
+uvicorn[standard]
+# Add more: langchain, llama-cpp-python, chromadb, sentence-transformers, python-dotenv
