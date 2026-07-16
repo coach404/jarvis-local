@@ -12,7 +12,10 @@ workflow skills, memory/outbox convention, audit + architecture docs.
 - Tune agents from real transcripts — tighten any specialist that drifts out of
   its lane or pads output. Prompts are code: PR every change.
 
-## Phase 3 — Automation & schedule
+## Phase 3 — Automation & schedule (started via anja-agent-os)
+- Scheduled headless agents live in the sibling repo
+  [`anja-agent-os`](https://github.com/coach404/anja-agent-os): first agent
+  `pain-scanner` (weekly HN pain mining → Supabase) shipped with tests + CI.
 - Scheduled runs: /daily-briefing every morning, weekly audience-analyst retro,
   weekly study replan (Claude Code Routines / cron triggers).
 - Connector hardening: Apollo for prospect-scout, Gmail draft flow for
