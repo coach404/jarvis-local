@@ -5,3 +5,6 @@ models/
 .env
 node_modules/
 dist/
+
+# private memory (confidential client data)
+memory/private/
