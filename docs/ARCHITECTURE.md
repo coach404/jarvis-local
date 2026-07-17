@@ -67,6 +67,18 @@ voice) → human approval gate → `repurposer` (platform kit) → `audience-ana
 6. **Flywheel.** Wins from any team are candidates for /content-pipeline — the
    work produces the brand, the brand produces clients, clients produce work.
 
+## Sibling repo: anja-agent-os (the hands)
+
+This repo is the **brain** (definitions, routing, interactive workflows). The
+**scheduled runtime** lives in [`coach404/anja-agent-os`](https://github.com/coach404/anja-agent-os):
+headless Python agents on GitHub Actions cron, results stored in Supabase.
+Division of labor — **Claude thinks, Anja fetches**: master-level analysis stays
+with the specialists here; Anja does recurring grunt work (e.g. the weekly
+`pain-scanner` that mines HN for verbatim pains into the `pain_points` table,
+which `pain-point-miner` and `offer-doctor` can use as pre-gathered raw
+material). Anja inherits the same rules: one agent one task, draft-only
+outbound, every run logged.
+
 ## Repo layout
 
 ```
