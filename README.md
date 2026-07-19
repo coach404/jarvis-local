@@ -8,15 +8,16 @@ SAT/IELTS/programming, and building a public personal brand.
 ## What's inside
 
 - **`CLAUDE.md`** — Jarvis, the Chief of Staff: routing rules, quality bar, memory.
-- **`.claude/agents/`** — 18 single-task specialists in 4 teams:
+- **`.claude/agents/`** — 22 single-task specialists in 5 teams:
   - **Growth**: market-analyst · pain-point-miner · prospect-scout ·
     client-analyst · offer-doctor · insight-synthesizer
+  - **Wealth**: idea-scout · idea-validator · venture-builder · money-strategist
   - **Learning**: study-planner · sat-coach · ielts-coach · programming-mentor ·
     quiz-master · note-distiller
   - **Brand**: brand-strategist · content-writer · repurposer · audience-analyst
   - **Ops**: day-planner · inbox-triage
-- **`.claude/skills/`** — chained workflows: `/client-discovery`,
-  `/study-session`, `/content-pipeline`, `/daily-briefing`
+- **`.claude/skills/`** — chained workflows: `/client-discovery`, `/idea-engine`,
+  `/study-session`, `/content-pipeline`, `/daily-briefing`, `/second-brain`
 - **`memory/`** & **`outbox/`** — durable state and dated deliverables
 - **`docs/`** — [AUDIT](docs/AUDIT.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) ·
   [ROADMAP](docs/ROADMAP.md)
