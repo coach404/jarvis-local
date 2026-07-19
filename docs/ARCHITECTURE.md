@@ -35,6 +35,13 @@ web search).
 → `insight-synthesizer` (one ≤400-word decision brief) → `offer-doctor`
 (the offer + pricing). Codified as the **/client-discovery** skill.
 
+### Wealth (get-rich engine: generate → kill cheap → build → price)
+`idea-scout` (ideas from pains + unfair advantages) → `idea-validator` (4 checks,
+kills weak ideas in one session) → `money-strategist` (EV-per-hour ranking, ONE
+winner) → `venture-builder` (30-day launch plan, agents assigned, tripwires).
+Feeds on anja's `pain_points` table; feeds the Brand team (build-in-public).
+Codified as **/idea-engine**. Permanent record in `memory/idea-ledger.md`.
+
 ### Learning (SAT, IELTS, programming/IT/ML)
 `study-planner` (backwards plan) → per-subject master (`sat-coach` /
 `ielts-coach` / `programming-mentor`) → `quiz-master` (mandatory exit testing)
@@ -49,6 +56,12 @@ voice) → human approval gate → `repurposer` (platform kit) → `audience-ana
 ### Ops (the daily glue)
 `inbox-triage` ∥ `day-planner` → composed morning brief. Codified as
 **/daily-briefing**.
+
+### Second brain (cross-team memory discipline)
+**/second-brain** defines capture (durable facts → `memory/` file map: goals,
+business-profile, money, idea-ledger, people, lessons) and the weekly review
+(wins/stalls/lessons → next week's one priority per area). This is what makes
+the whole system compound instead of forget.
 
 ## Cross-cutting rules
 
