@@ -28,7 +28,11 @@ SAT/IELTS/programming, and building a public personal brand.
 Open this repo in Claude Code (or connect it on claude.ai). The orchestrator
 loads from `CLAUDE.md`; agents and skills are picked up automatically. Start
 your day with `/daily-briefing`; hunt clients with `/client-discovery <niche>`;
-study with `/study-session`; publish with `/content-pipeline`.
+find your next venture with `/idea-engine`; study with `/study-session`;
+publish with `/content-pipeline`.
+
+Running it on your own machine: **[docs/LOCAL-SETUP.md](docs/LOCAL-SETUP.md)** —
+15-minute setup, and it lets the anja-agent-os runtime run without GitHub Actions.
 
 ## Principles
 
