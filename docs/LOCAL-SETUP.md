@@ -19,18 +19,51 @@ speed, files, and the browser.
 
 ## 1. Install Claude Code
 
-```bash
-npm install -g @anthropic-ai/claude-code
+The native installer is recommended — it needs no Node.js and auto-updates itself.
+
+**Windows CMD** (prompt looks like `C:\Users\You>`):
+
+```batch
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
 ```
 
-(Needs Node.js 18+. Alternative native installer: `curl -fsSL https://claude.ai/install.sh | bash`.)
+**Windows PowerShell** (prompt looks like `PS C:\Users\You>`):
 
-Then log in once:
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+**macOS / Linux / WSL:**
 
 ```bash
-claude
-# follow the browser login prompt
+curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+Then **close the terminal and open a new one** — the installer adds `claude` to
+PATH, and already-open terminals won't see it until they restart.
+
+Verify and log in:
+
+```bash
+claude --version     # should print something like 2.1.211 (Claude Code)
+claude               # first run opens the browser login
+```
+
+Requires a Claude Pro, Max, Team, or Enterprise account (the free plan doesn't
+include Claude Code).
+
+### Windows notes
+
+- **The command is `claude`, not `claude code`.** `claude code` returns
+  "not recognized".
+- **Install [Git for Windows](https://git-scm.com/downloads/win)** — optional but
+  recommended: it gives Claude Code a real Bash shell (otherwise it falls back to
+  PowerShell), and you need `git` anyway to clone and push.
+- **Prefer not to use a terminal at all?** The [Claude Desktop app](https://claude.com/download)
+  runs Claude Code with a graphical interface — same agents, same repo, no CLI.
+- Alternative installs if the above fails: `winget install Anthropic.ClaudeCode`,
+  or `npm install -g @anthropic-ai/claude-code` (needs Node.js 22+).
+- If anything looks broken, run `claude doctor` for a diagnostic.
 
 ## 2. Clone both repos
 
@@ -78,6 +111,8 @@ fill in the `[owner]` blanks in your outreach drafts automatically.
 
 This is the part that unblocks today.
 
+**macOS / Linux:**
+
 ```bash
 cd anja-agent-os
 python3 -m venv .venv && source .venv/bin/activate
@@ -90,6 +125,26 @@ export GROQ_API_KEY="<from console.groq.com — free tier is fine>"
 python -m agents.run hello          # connection test
 python -m agents.run pain-scanner   # the real thing
 ```
+
+**Windows CMD** (needs [Python](https://www.python.org/downloads/) — tick
+"Add python.exe to PATH" in the installer):
+
+```batch
+cd anja-agent-os
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+set SUPABASE_URL=https://kiqvnmmrnwxbfofmkcma.supabase.co
+set SUPABASE_SERVICE_KEY=<service_role key from Supabase dashboard>
+set GROQ_API_KEY=<from console.groq.com — free tier is fine>
+
+python -m agents.run hello
+python -m agents.run pain-scanner
+```
+
+(`set` only lasts for that window. For something permanent, put the three values
+in a `.env` file — it's already gitignored.)
 
 `pain-scanner` mines Hacker News for verbatim pain points in the niches listed
 in `agents/config/pain_scanner.json`, scores them with Groq, and writes the
