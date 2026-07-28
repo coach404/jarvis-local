@@ -65,12 +65,48 @@ include Claude Code).
   or `npm install -g @anthropic-ai/claude-code` (needs Node.js 22+).
 - If anything looks broken, run `claude doctor` for a diagnostic.
 
-## 2. Clone both repos
+## 2. Clone both repos — as siblings
+
+Folder layout matters. Put them **next to each other**, not nested:
+
+```
+C:\Users\Administrator\
+├── jarvis-local\      ← run Claude Code from here
+└── anja-agent-os\
+```
 
 ```bash
 git clone https://github.com/coach404/jarvis-local.git
 git clone https://github.com/coach404/anja-agent-os.git
 ```
+
+### How the two repos connect in one session
+
+Run Claude Code from **jarvis-local** — it's the brain, and its `CLAUDE.md`
+orchestrates everything. Anja is already wired in via
+`.claude/settings.json`:
+
+```json
+{ "permissions": { "additionalDirectories": ["../anja-agent-os"] } }
+```
+
+That means one session can read and edit both repos: Jarvis can write a new
+Anja agent, run her tests, and commit — without you switching windows.
+
+Three ways to do it, in order of preference:
+
+1. **Nothing to do** — the setting above is committed, so it works if the repos
+   are siblings.
+2. **Per-session:** `claude --add-dir ../anja-agent-os`
+3. **Mid-session:** type `/add-dir ../anja-agent-os` in a running session.
+
+Caveat worth knowing: additional directories give **file access only** —
+Anja's own config isn't auto-loaded. Jarvis's `CLAUDE.md` stays the single
+source of instructions, which is exactly what you want.
+
+**Don't** run a separate Claude session inside `anja-agent-os` for normal work.
+You'd lose the orchestrator, the specialists, and the memory files — Anja has no
+`CLAUDE.md` of her own. One session from jarvis-local, always.
 
 ## 3. Start Jarvis
 

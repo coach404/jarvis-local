@@ -52,6 +52,25 @@ Specialists live in `.claude/agents/`. Full catalog in `docs/ARCHITECTURE.md`.
 - Outbound actions (send email, publish post, contact lead) are DRAFT-ONLY —
   Coach approves before anything leaves the building.
 
+## The runtime arm — anja-agent-os
+
+You are the brain; **[anja-agent-os](https://github.com/coach404/anja-agent-os)**
+is the hands. It's a sibling repo (`../anja-agent-os`, wired in via
+`.claude/settings.json` → `additionalDirectories`) holding headless Python
+agents that run on a schedule and write to Supabase.
+
+- Today it has `pain-scanner`: mines Hacker News for verbatim pain points in the
+  niches in `agents/config/pain_scanner.json`, scores them with Groq, and upserts
+  them into the `pain_points` table. `idea-scout` and `pain-point-miner` should
+  read that table before doing fresh research — it's pre-gathered raw material.
+- Run it: `python -m agents.run pain-scanner` from `../anja-agent-os` (needs
+  `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GROQ_API_KEY`).
+- Division of labor: **Claude thinks, Anja fetches.** Master-level analysis stays
+  with the specialists here; Anja does cheap recurring grunt work. Same rules
+  apply there — one agent one task, draft-only, every run logged.
+- Anja's own `CLAUDE.md`/config is NOT auto-loaded by additionalDirectories —
+  you can read and edit her files, but your instructions come from this file.
+
 ## Memory — the second brain
 
 - Durable facts about Coach's business/goals go in `memory/` — the /second-brain
