@@ -34,6 +34,10 @@ publish with `/content-pipeline`.
 Running it on your own machine: **[docs/LOCAL-SETUP.md](docs/LOCAL-SETUP.md)** —
 15-minute setup, and it lets the anja-agent-os runtime run without GitHub Actions.
 
+Making agents run without you: **[docs/AUTONOMOUS-AGENTS.md](docs/AUTONOMOUS-AGENTS.md)** —
+headless `claude -p`, Anja's scheduled Python agents, and a Windows Task
+Scheduler script that runs both every morning.
+
 ## Principles
 
 1. One agent = one task, mastered.
